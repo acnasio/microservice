@@ -1,0 +1,13 @@
+package com.acnas.loan.app.data.es.cqrs.service;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class LoanAppApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(LoanAppApplication.class, args);
+    }
+
+}

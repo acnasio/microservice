@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: loan-app-service
+      
+server:
+  port: 9090
+  
+
+
