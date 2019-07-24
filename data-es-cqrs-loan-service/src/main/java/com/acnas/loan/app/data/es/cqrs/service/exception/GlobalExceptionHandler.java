@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.acnas.loan.app.data.es.cqrs.service.exception;
 
 import java.util.Iterator;
@@ -20,16 +23,28 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import com.acnas.loan.app.data.es.cqrs.service.util.ExceptionHandlerType;
 
  
+// TODO: Auto-generated Javadoc
 //import com.smartride.msa.data.nfr.exception.event.ExceptionActivityEventSender;
 
  
 
 //@ControllerAdvice
+/**
+ * The Class GlobalExceptionHandler.
+ */
 //@Order(Ordered.HIGHEST_PRECEDENCE)
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
+	/** The Constant LOGGER. */
 	private static final Logger LOGGER = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
+	/**
+	 * Handle exception.
+	 *
+	 * @param ex the ex
+	 * @param request the request
+	 * @return the response entity
+	 */
 	@Autowired
 	//ExceptionActivityEventSender exceptionEventSender;
 

@@ -1,3 +1,6 @@
+/*
+ * 
+ */
  
 package com.acnas.loan.app.data.es.cqrs.service.util;
 
@@ -13,17 +16,30 @@ import org.slf4j.LoggerFactory;
 import net.logstash.logback.encoder.org.apache.commons.lang.exception.ExceptionUtils;
  
  
+// TODO: Auto-generated Javadoc
+/**
+ * The Enum DateType.
+ */
 public enum DateType {
 	
 	
 	
+	/** The date format with nano seconds. */
 	//common date format 
 	DATE_FORMAT_WITH_NANO_SECONDS ("MM.dd.yyyy HH:mm:ss:SSSSSSS");
 	
+	/** The value. */
 	// Date value
     private final String value;
+    
+    /** The Constant LOGGER. */
     private static final Logger LOGGER = LoggerFactory.getLogger(DateType.class);
     
+    /**
+     * Instantiates a new date type.
+     *
+     * @param value the value
+     */
     //Private constructor
     private DateType(String value){
         this.value = value;
@@ -50,10 +66,11 @@ public enum DateType {
     
      
     /**
-	 * Method to get the date as string using the given input date object.
-	 * @param {@link Date)
-	 * @return {@link String} value of the formatted date 
-	 */
+     * Method to get the date as string using the given input date object.
+     *
+     * @param date the date
+     * @return {@link String} value of the formatted date
+     */
     public String getDateAsString(Date date){
     	DateFormat dateFormat = new SimpleDateFormat(value);
     	return dateFormat.format(date);    	
@@ -64,10 +81,11 @@ public enum DateType {
     
     
     /**
-	 * Method to get the date as formatted date object using the given input date object.
-	 * @param {@link String)
-	 * @return {@link Date} formatted date 
-	 */
+     * Method to get the date as formatted date object using the given input date object.
+     *
+     * @param date the date
+     * @return {@link Date} formatted date
+     */
     public Date getStringAsDate(String date){
     	Date returnValue = null;
     	DateFormat dateFormat = new SimpleDateFormat(value);
@@ -78,11 +96,13 @@ public enum DateType {
 		} 
     	return returnValue;
     }
+    
     /**
-	 * Method to get the date as string using the given input string object.
-	 * @param {@link String)
-	 * @return {@link String} value of the formatted date 
-	 */
+     * Method to get the date as string using the given input string object.
+     *
+     * @param date the date
+     * @return {@link String} value of the formatted date
+     */
     public String getDateStringFormated(String date){
     	String returnValue = null;
     	DateFormat dateFormat = new SimpleDateFormat(value);
@@ -96,10 +116,12 @@ public enum DateType {
     }
     
     /**
-	 * Method to get the after date out of two given input date object.
-	 * @param {@link Date)
-	 * @return {@link Date} value of the after date object with format support 
-	 */
+     * Method to get the after date out of two given input date object.
+     *
+     * @param date1 the date 1
+     * @param date2 the date 2
+     * @return {@link Date} value of the after date object with format support
+     */
     public Date getAfterDateAsString(Date date1, Date date2){
     	Date returnValue = null;
     	DateFormat dateFormat = new SimpleDateFormat(value);
@@ -122,10 +144,12 @@ public enum DateType {
     }
     
     /**
-	 * Method to get the after date out of two given input string date object.
-	 * @param {@link String)
-	 * @return {@link Date} value of the after date object as string with format support 
-	 */
+     * Method to get the after date out of two given input string date object.
+     *
+     * @param date1 the date 1
+     * @param date2 the date 2
+     * @return {@link Date} value of the after date object as string with format support
+     */
     public String getAfterDateAsString(String date1, String date2){
     	String returnValue = null;
     	DateFormat dateFormat = new SimpleDateFormat(value);
@@ -144,6 +168,13 @@ public enum DateType {
     	return returnValue;
     }
     
+    /**
+     * Gets the date difference in milli seconds.
+     *
+     * @param oldDate the old date
+     * @param currentDate the current date
+     * @return the date difference in milli seconds
+     */
     public long getDateDifferenceInMilliSeconds(String oldDate, String currentDate){
     	long returnValue = 0L;
     	DateFormat dateFormat = new SimpleDateFormat(value);
@@ -160,6 +191,13 @@ public enum DateType {
     }
     
     
+    /**
+     * Gets the date difference in milli seconds as string.
+     *
+     * @param oldDate the old date
+     * @param currentDate the current date
+     * @return the date difference in milli seconds as string
+     */
     public String getDateDifferenceInMilliSecondsAsString(String oldDate, String currentDate){
     	String  returnValue = null;
     	DateFormat dateFormat = new SimpleDateFormat(value);

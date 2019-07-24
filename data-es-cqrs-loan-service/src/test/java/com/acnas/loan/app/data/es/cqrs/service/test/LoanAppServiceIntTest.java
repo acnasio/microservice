@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.acnas.loan.app.data.es.cqrs.service.test;
 
 import java.util.List;
@@ -21,17 +24,26 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
  
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class LoanAppServiceIntTest.
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class LoanAppServiceIntTest {
 
+	/** The Constant LOGGER. */
 	private final static Logger LOGGER = LoggerFactory.getLogger(LoanAppServiceIntTest.class);
 
+	/** The rest template. */
 	@Autowired
 	private TestRestTemplate restTemplate;
 	
 	 
 	
+	/**
+	 * Test.
+	 */
 	@Test
 	public void test() {
 		

@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.acnas.loan.app.data.es.cqrs.service.query.controller;
 
 import java.util.List;
@@ -20,18 +23,31 @@ import com.acnas.loan.app.data.es.cqrs.service.es.command.CreateLoanAppCommand;
 import com.acnas.loan.app.data.es.cqrs.service.es.projection.AppliedLoanAppProjection;
 import com.acnas.loan.app.data.es.cqrs.service.es.query.AppliedLoanAppProjectionQuery;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class LoanAppRestEndpoint.
+ */
 @RestController
 public class LoanAppRestEndpoint {
 
+    /** The loan app command service. */
     @Autowired
     LoanAppCommandService loanAppCommandService;
+    
+    /** The loan app query service. */
     @Autowired
     LoanAppQueryService loanAppQueryService;
 
+    /**
+     * Instantiates a new loan app rest endpoint.
+     */
     public LoanAppRestEndpoint() {
          
     }
 
+    /**
+     * Ship order.
+     */
     @PostMapping("/loanApp")
     public void shipOrder() {
     	//TODO - get from main source
@@ -49,11 +65,19 @@ public class LoanAppRestEndpoint {
         
     }
 
+    /**
+     * Ship unconfirmed order.
+     */
     @PostMapping("/fulfill-unconfirmed-loanApp")
     public void shipUnconfirmedOrder() {
        //TODO
     }
 
+    /**
+     * Find all ordered products.
+     *
+     * @return the list
+     */
     @GetMapping("/all-orders")
     public List<AppliedLoanAppProjection> findAllOrderedProducts() {
 		/*

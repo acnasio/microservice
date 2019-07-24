@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.acnas.loan.app.data.es.cqrs.service.business.impl;
 
 import java.util.List;
@@ -15,15 +18,28 @@ import com.acnas.loan.app.data.es.cqrs.service.exception.BusinessException;
 
 import org.axonframework.queryhandling.QueryGateway;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class LoanAppQueryServiceImpl.
+ */
 @Service
 public class LoanAppQueryServiceImpl implements LoanAppQueryService {
 	
 	
+	/** The event store. */
 	private final EventStore eventStore;
+	
+	/** The query gateway. */
 	private final QueryGateway queryGateway;
 	
 	
 	
+	/**
+	 * Instantiates a new loan app query service impl.
+	 *
+	 * @param eventStore the event store
+	 * @param queryGateway the query gateway
+	 */
 	public LoanAppQueryServiceImpl(EventStore eventStore,QueryGateway queryGateway) {
         this.eventStore = eventStore;
         this.queryGateway = queryGateway;
@@ -31,6 +47,13 @@ public class LoanAppQueryServiceImpl implements LoanAppQueryService {
 
 
 
+	/**
+	 * Gets the all loan app events.
+	 *
+	 * @param orderLoanAppEventQuery the order loan app event query
+	 * @return the all loan app events
+	 * @throws BusinessException the business exception
+	 */
 	@Override
 	public List<Object> getAllLoanAppEvents(AppliedLoanAppEventQuery orderLoanAppEventQuery) throws BusinessException {
 		return queryGateway.query(orderLoanAppEventQuery,
@@ -39,6 +62,13 @@ public class LoanAppQueryServiceImpl implements LoanAppQueryService {
 
 
 
+	/**
+	 * Gets the ordered loan app projection.
+	 *
+	 * @param orderedLoanAppProjectionQuery the ordered loan app projection query
+	 * @return the ordered loan app projection
+	 * @throws BusinessException the business exception
+	 */
 	@Override
 	public List<AppliedLoanAppProjection> getOrderedLoanAppProjection(AppliedLoanAppProjectionQuery orderedLoanAppProjectionQuery)
 			throws BusinessException {

@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.acnas.loan.app.data.es.cqrs.service.config;
 
 import org.springframework.context.annotation.Configuration;
@@ -10,14 +13,28 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SwaggerConfig.
+ */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
 
+	/**
+	 * Api.
+	 *
+	 * @return the docket
+	 */
 	public Docket api() {
 		return buildDocket();
 	}
 
+	/**
+	 * Builds the docket.
+	 *
+	 * @return the docket
+	 */
 	private Docket buildDocket() {
 		Docket returnValue = new Docket(DocumentationType.SWAGGER_2).select()
 				.apis(RequestHandlerSelectors.basePackage("com.cts.data.es.cqrs.service")).paths(PathSelectors.any())
@@ -27,6 +44,11 @@ public class SwaggerConfig {
 
 	}
 
+	/**
+	 * Api info.
+	 *
+	 * @return the api info
+	 */
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder()
 				.title("Cognizant ServiceLab POC - Microservice Event Sourcing using Axon and Spring Boot")

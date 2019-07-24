@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.acnas.loan.app.data.es.cqrs.service;
 
 import org.springframework.boot.SpringApplication;

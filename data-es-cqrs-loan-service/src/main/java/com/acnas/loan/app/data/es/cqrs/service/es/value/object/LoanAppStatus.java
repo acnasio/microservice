@@ -1,7 +1,17 @@
+/*
+ * 
+ */
 package com.acnas.loan.app.data.es.cqrs.service.es.value.object;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Enum LoanAppStatus.
+ */
 public enum LoanAppStatus {
 
-    PLACED, CONFIRMED, FULFILLED
+    /** The placed. */
+    PLACED, /** The confirmed. */
+ CONFIRMED, /** The fulfilled. */
+ FULFILLED
 
 }

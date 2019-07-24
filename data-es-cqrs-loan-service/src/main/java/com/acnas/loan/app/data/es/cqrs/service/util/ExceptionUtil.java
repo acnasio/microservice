@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.acnas.loan.app.data.es.cqrs.service.util;
 
 import org.apache.commons.lang.exception.ExceptionUtils;
@@ -9,12 +12,26 @@ import com.acnas.loan.app.data.es.cqrs.service.exception.*;
 
  
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ExceptionUtil.
+ */
 public class ExceptionUtil {
 
+	/** The Constant LOGGER. */
 	private static final Logger LOGGER = LoggerFactory.getLogger(ExceptionUtil.class);
 	
+	/**
+	 * Instantiates a new exception util.
+	 */
 	private ExceptionUtil() {}
 
+	/**
+	 * Gets the formatted time.
+	 *
+	 * @param e the e
+	 * @return the formatted time
+	 */
 	public static String getFormattedTime(Exception e) {
 		String returnTime = null;
 		String inputExceptionClassName = e.getClass().getName();
@@ -59,6 +76,12 @@ public class ExceptionUtil {
 		return returnTime;
 	}
 
+	/**
+	 * Gets the formatted handler name.
+	 *
+	 * @param e the e
+	 * @return the formatted handler name
+	 */
 	public static String getFormattedHandlerName(Exception e) {
 		String returnHandlerName = null;
 		String inputExceptionClassName = e.getClass().getName();
@@ -94,11 +117,26 @@ public class ExceptionUtil {
 		return returnHandlerName;
 	}
 	
+	/**
+	 * Generate api exception.
+	 *
+	 * @param message the message
+	 * @param handlerType the handler type
+	 * @param operationName the operation name
+	 * @return the api exception
+	 */
 	public static ApiException generateApiException(String message, String handlerType, String operationName) {
 		return new ApiException(message, handlerType, operationName);	 
 		 
 	}
 	
+	/**
+	 * Generate api exception from business exception.
+	 *
+	 * @param be the be
+	 * @param operationName the operation name
+	 * @return the api exception
+	 */
 	public static ApiException generateApiExceptionFromBusinessException(BusinessException be, String operationName) {
 		ApiException apiException = new ApiException(ExceptionUtils.getStackTrace(be), be, null, operationName);		 
 		Assert.notNull(apiException.getHandlerType(), "the API Exception handler must NOT be null");

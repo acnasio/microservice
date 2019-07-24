@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.acnas.loan.app.data.es.cqrs.service.es.aggregate;
 
 import static org.axonframework.modelling.command.AggregateLifecycle.apply;
@@ -16,27 +19,61 @@ import com.acnas.loan.app.data.es.cqrs.service.es.event.LoanAppPlacedEvent;
 
 import lombok.Data;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class LoanAppAggregate.
+ */
 @Aggregate
+
+/**
+ * To string.
+ *
+ * @return the java.lang. string
+ */
 @Data
 public class LoanAppAggregate {
 
+    /** The loan app ID. */
     @AggregateIdentifier
     private String loanAppID;
+    
+    /** The customer name. */
     private String customerName;
+    
+    /** The product. */
     private String product;
+    
+    /** The status. */
     private String status;
+    
+    /** The app confirmed. */
     private boolean appConfirmed;
 
+    /**
+     * Instantiates a new loan app aggregate.
+     *
+     * @param command the command
+     */
     @CommandHandler
     public LoanAppAggregate(CreateLoanAppCommand command) {
         apply(new LoanAppPlacedEvent(command.getId(), command.getProduct(), command.getCustomerName()));
     }
 
+    /**
+     * Handle.
+     *
+     * @param command the command
+     */
     @CommandHandler
     public void handle(ConfirmLoanAppCommand command) {
         apply(new LoanAppConfirmedEvent(loanAppID));
     }
 
+    /**
+     * Handle.
+     *
+     * @param command the command
+     */
     @CommandHandler
     public void handle(FulfillLoanAppCommand command) {
         if (!appConfirmed) {
@@ -46,17 +83,30 @@ public class LoanAppAggregate {
         apply(new LoanAppFulfilledEvent(loanAppID));
     }
 
+    /**
+     * On.
+     *
+     * @param event the event
+     */
     @EventSourcingHandler
     public void on(LoanAppPlacedEvent event) {
         this.loanAppID = event.getId();
         appConfirmed = false;
     }
 
+    /**
+     * On.
+     *
+     * @param event the event
+     */
     @EventSourcingHandler
     public void on(LoanAppConfirmedEvent event) {
     	appConfirmed = true;
     }
 
+    /**
+     * Instantiates a new loan app aggregate.
+     */
     protected LoanAppAggregate() {
          
     }
